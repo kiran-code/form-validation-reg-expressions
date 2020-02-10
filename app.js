@@ -1,9 +1,10 @@
 // Form Blur Event Listerners
-document.getElementById('name').addEventListener('blur', validateName);
-document.getElementById('zipcode').addEventListener('blur', validateZipcode);
-document.getElementById('email').addEventListener('blur', validateEmail);
-document.getElementById('phoneNumber').addEventListener('blur', validatePhoneNumber);
+document.getElementById('name').addEventListener('keyup', validateName);
+document.getElementById('zipcode').addEventListener('keyup', validateZipcode);
+document.getElementById('email').addEventListener('keyup', validateEmail);
+document.getElementById('phoneNumber').addEventListener('keyup', validatePhoneNumber);
 
+const submit = document.getElementById('submit');
 
 function validateName(){
   const name = document.getElementById('name');
@@ -11,8 +12,10 @@ function validateName(){
 
   if(!re.test(name.value)){
     name.classList.add('is-invalid');
+    submit.disabled = true;
   }else{
     name.classList.remove('is-invalid');
+    submit.disabled = false;
   }
 }
 
@@ -22,8 +25,10 @@ function validateZipcode(){
 
   if(!re.test(zipcode.value)){
     zipcode.classList.add('is-invalid');
+    submit.disabled = true;
   }else{
     zipcode.classList.remove('is-invalid');
+    submit.disabled = false;
   }
 }
 
@@ -33,8 +38,10 @@ function validateEmail(){
 
   if(!re.test(email.value)){
     email.classList.add('is-invalid');
+    submit.disabled = true;
   }else{
     email.classList.remove('is-invalid');
+    submit.disabled = false;
   }
 }
 
@@ -45,7 +52,9 @@ function validatePhoneNumber(){
 
   if(!re.test(phoneNumber.value)){
     phoneNumber.classList.add('is-invalid');
+    submit.disabled = true;
   }else{
     phoneNumber.classList.remove('is-invalid');
+    submit.disabled = false;
   }
 }
